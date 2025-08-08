@@ -1,4 +1,5 @@
 import os
+import gdown
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -114,6 +115,7 @@ elif st.session_state.page == 'segmentation':
 
         st.success(f"Predicted Segment: **{cluster_names.get(cluster, 'Unknown')}** (Cluster {cluster})")
 # Navigate to your project folder (if not already there)
+
 
 
 
