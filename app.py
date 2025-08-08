@@ -23,7 +23,7 @@ def go_to_segmentation():
 # ----------------- Load Dataset -----------------
 @st.cache_data
 def load_data():
-    data = pd.read_parquet(r"C:\Users\patel\Desktop\INTERNSHIP\shopper_spectrum\online_retail.csv", encoding='ISO-8859-1')
+    data = pd.read_parquet("online_retail.parquet", encoding='ISO-8859-1')
     data.dropna(subset=['CustomerID'], inplace=True)
     data['CustomerID'] = data['CustomerID'].astype(str)
     data['InvoiceDate'] = pd.to_datetime(data['InvoiceDate'])  
@@ -109,6 +109,7 @@ elif st.session_state.page == 'segmentation':
 
         st.success(f"Predicted Segment: **{cluster_names.get(cluster, 'Unknown')}** (Cluster {cluster})")
 # Navigate to your project folder (if not already there)
+
 
 
 
