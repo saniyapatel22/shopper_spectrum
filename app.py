@@ -32,7 +32,7 @@ def load_data():
         gdown.download(url, output, quiet=False)
 
 
-    data = pd.read_csv(output)
+    data = pd.read_csv(output,encoding='ISO-8859-1',on_bad_lines="skip")
     data.dropna(subset=['CustomerID'], inplace=True)
     data['CustomerID'] = data['CustomerID'].astype(str)
     data['InvoiceDate'] = pd.to_datetime(data['InvoiceDate'])  
@@ -119,6 +119,7 @@ elif st.session_state.page == 'segmentation':
 
         st.success(f"Predicted Segment: **{cluster_names.get(cluster, 'Unknown')}** (Cluster {cluster})")
 # Navigate to your project folder (if not already there)
+
 
 
 
