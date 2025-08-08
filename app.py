@@ -25,8 +25,7 @@ def go_to_segmentation():
 def load_data():
     url="https://drive.google.com/file/d/18ndn0jnsELquDYxLLplD4stUcc8icjKr/view?usp=sharing"
     output="online_retail.csv"
-    if not os.path.exists(output):
-        gdown.download(url, output, quiet=False)
+    gdown.download(url, output, quiet=False)
 
     data = pd.read_csv(output)
     data.dropna(subset=['CustomerID'], inplace=True)
@@ -115,6 +114,7 @@ elif st.session_state.page == 'segmentation':
 
         st.success(f"Predicted Segment: **{cluster_names.get(cluster, 'Unknown')}** (Cluster {cluster})")
 # Navigate to your project folder (if not already there)
+
 
 
 
